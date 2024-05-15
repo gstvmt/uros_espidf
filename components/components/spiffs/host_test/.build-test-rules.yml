@@ -1,4 +1,0 @@
-components/spiffs/host_test:
-  enable:
-    - if: IDF_TARGET == "linux"
-      reason: only test on linux
