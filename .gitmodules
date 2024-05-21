@@ -1,0 +1,11 @@
+[submodule "components/micro_ros_espidf_component"]
+    path = components/micro_ros_espidf_component
+    url = git@github.com:micro-ROS/micro_ros_espidf_component.git
+
+[submodule "components/arduino-esp32"]
+    path = components/arduino-esp32
+    url = git@github.com:espressif/arduino-esp32.git
+
+[submodule "components/SparkFun_SCD30_Arduino_Library"]
+    path = components/SparkFun_SCD30_Arduino_Library
+    url = git@github.com:sparkfun/SparkFun_HMC6343_Arduino_Library.git
