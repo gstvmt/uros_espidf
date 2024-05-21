@@ -53,11 +53,11 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
   		imu_msg.angular_velocity.y = 0.0;
   		imu_msg.angular_velocity.z = 0.0; 
 
-		imu_msg.linear_acceleration.x = ((float) compass.accelX / 1024.0)*9.81;   
-  		imu_msg.linear_acceleration.y = ((float) compass.accelY / 1024.0)*9.81;   
-  		imu_msg.linear_acceleration.z = ((float) compass.accelZ / 1024.0)*9.81; 
+		imu_msg.linear_acceleration.x = ((float) compass.accelX / 1024.0);   
+  		imu_msg.linear_acceleration.y = ((float) compass.accelY / 1024.0);   
+  		imu_msg.linear_acceleration.z = ((float) compass.accelZ / 1024.0); 
 
-		printf((float) compass.accelZ/1024.0);
+		printf("Tó --->%d\n", (compass.accelZ));
 
 		RCSOFTCHECK(rcl_publish(&publisher, &imu_msg, NULL));
 	}
@@ -66,7 +66,15 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
 void micro_ros_task(void * arg)
 {
 	Wire.begin();
+	Wire.setClock(400000);
+
 	IMU_CHECK(compass.init());
+
+	compass.reset();
+	compass.enterCalMode();
+	delay(500);
+	compass.exitCalMode();
+
 
 	rcl_allocator_t allocator = rcl_get_default_allocator();
 	rclc_support_t support;
