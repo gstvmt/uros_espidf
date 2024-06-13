@@ -6,7 +6,6 @@
     path = components/arduino-esp32
     url = git@github.com:espressif/arduino-esp32.git
 
-[submodule "components/SparkFun_SCD30_Arduino_Library"]
-    path = components/SparkFun_SCD30_Arduino_Library
-    url = git@github.com:sparkfun/SparkFun_HMC6343_Arduino_Library.git
-         
+[submodule "components/SparkFun_HMC6343_Arduino_Library"]
+	path = components/SparkFun_HMC6343_Arduino_Library
+	url = git@github.com:sparkfun/SparkFun_HMC6343_Arduino_Library.git
